@@ -4,6 +4,19 @@
 */
 
 function isPalindrome(str) {
+  let result = '';
+  for (const char of str) {
+    const code = char.charCodeAt(0); // Get ASCII code of the character
+    if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122)) { // Check if the character is a letter
+      result += char;
+    }
+  }
+  str = result;
+  str = str.toLowerCase().split('');
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] != str[str.length - i - 1]) return false;
+  }
   return true;
 }
 
